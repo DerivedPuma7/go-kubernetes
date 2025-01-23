@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: kubernetes-go
+    volumes:
+    - .:/app
+    ports:
+    - 8080:8080
+    command: sh -c "go mod init go-kubernetes && go mod tidy && go run ."
