@@ -6,4 +6,4 @@ services:
     - .:/app
     ports:
     - 8080:8080
-    command: sh -c "go mod init go-kubernetes && go mod tidy && go run ."
+    command: sh -c "[ ! -f go.mod ] && go mod init go-kubernetes || true && go mod tidy && go run ."
