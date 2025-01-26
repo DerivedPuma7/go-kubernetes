@@ -8,5 +8,5 @@ func main() {
 }
 
 func Hello(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("<h1>hello fullcycle webserver</h1>"))
+	w.Write([]byte("<h1>hello fullcycle webserver v2</h1>"))
 }
