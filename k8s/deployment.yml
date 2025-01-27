@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: "goserver"
-        image: "derivedpuma7/kubernetes-go:v2"
+        image: "derivedpuma7/kubernetes-go:v3"
