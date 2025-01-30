@@ -16,24 +16,25 @@ spec:
     spec:
       containers:
         - name: "goserver"
-          image: "derivedpuma7/kubernetes-go:v5.4"
+          image: "derivedpuma7/kubernetes-go:v5.5"
 
-          # livenessProbe: # realiza health check da aplicação já em execução
-          #   httpGet:
-          #     path: /healthz
-          #     port: 3000
-          #   periodSeconds: 5 # periodo entre cada health check
-          #   failureThreshold: 1 # limite de falhas para considerar não health
-          #   timeoutSeconds: 1 # limite de tempo para timeout
-          #   successThreshold: 1 # limite de provas para considerar health
-
-          readinessProbe:
+          readinessProbe: # realiza health check da aplicação para permitir tráfego apenas quando tiver ready
             httpGet:
               path: /healthz
               port: 3000
-            periodSeconds: 3 # periodo entre cada health check
+            periodSeconds: 2 # periodo entre cada health check
             failureThreshold: 1 # limite de falhas para considerar não health
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
+
+          livenessProbe: # realiza health check da aplicação já em execução
+            httpGet:
+              path: /healthz
+              port: 3000
+            periodSeconds: 5 # periodo entre cada health check
+            failureThreshold: 1 # limite de falhas para considerar não health
+            timeoutSeconds: 1 # limite de tempo para timeout
+            successThreshold: 1 # limite de provas para considerar health
+            initialDelaySeconds: 15
 
           envFrom:
             - configMapRef:
