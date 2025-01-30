@@ -16,3 +16,8 @@ docker push derivedpuma7/kubernetes-go:version
 ```console
 kubectl rollout restart deployment/goserver
 ```
+
+## apply deplyment and watch
+```console
+kubectl apply -f k8s/deployment.yml && watch -n1 kubectl get pods
+```
