@@ -21,3 +21,8 @@ kubectl rollout restart deployment/goserver
 ```console
 kubectl apply -f k8s/deployment.yml && watch -n1 kubectl get pods
 ```
+
+## pod resource use
+```console
+kubectl top pod podname
+```
