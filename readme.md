@@ -26,3 +26,14 @@ kubectl apply -f k8s/deployment.yml && watch -n1 kubectl get pods
 ```console
 kubectl top pod podname
 ```
+
+## watch hpa
+```console
+watch -n1 kubectl get hpa
+```
+
+# fortio
+## run stress test 
+```console
+kubectl run -it fortio --rm --image=fortio/fortio -- load -qps 900 -t 120s -c 80 "http://goserver:8080/healthz"
+```
