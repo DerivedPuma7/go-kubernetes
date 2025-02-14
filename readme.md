@@ -32,6 +32,9 @@ kubectl top pod podname
 watch -n1 kubectl get hpa
 ```
 
+## inspect pod just like docker container
+kubectl exec -it podname -- bash
+
 # fortio
 ## run stress test 
 ```console
